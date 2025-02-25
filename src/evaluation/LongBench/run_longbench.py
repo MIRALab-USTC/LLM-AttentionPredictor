@@ -13,13 +13,8 @@ from ...llama_attention.attnpred_llama_attention import convert_kvcache_llama_at
 # from h2o_llama_attention import convert_kvcache_llama_h2o
 # from quest_llama_attention import convert_kvcache_llama_quest
 # from streamingllm_llama_attention import convert_kvcache_llama_streamingllm
-# from baselines.snapkv_llama_attention import convert_kvcache_llama_snapkv
+# from snapkv_llama_attention import convert_kvcache_llama_snapkv
 
-# datasets = ["narrativeqa", "qasper", "multifieldqa_en", "hotpotqa", "2wikimqa", "musique", \
-#             "gov_report", "qmsum", "multi_news", "trec", "triviaqa", "samsum", \
-#             "passage_count", "passage_retrieval_en", "lcc", "repobench_p"]
-# datasets = ["multifieldqa_en"],"qasper","hotpotqa","triviaqa","gov_report","narrativeqa"
-# datasets = ["narrativeqa"]
 
 dataset2maxlen = {
     "narrativeqa": 128,
@@ -187,7 +182,6 @@ def main(args):
     skip = 0
      
     for i in tqdm(range(0, len(prompts))):
-    # for i in tqdm(range(94, 96, args.eval_batch_size)):    
         
         prompt = prompts[i]
         input = inputs[i]
@@ -325,25 +319,25 @@ if __name__ == "__main__":
         #     for i in range(32):
         #         model.model.layers[i].self_attn.pooling_block_size = args.block_size
 
-    elif args.method == 'h2o':
-        checkpoint = copy.deepcopy(model.state_dict())
-        model = convert_kvcache_llama_h2o(model, topk=args.topk, skip_2layer=args.skip_2layer)
-        model.load_state_dict(checkpoint, strict=False)    
+    # elif args.method == 'h2o':
+    #     checkpoint = copy.deepcopy(model.state_dict())
+    #     model = convert_kvcache_llama_h2o(model, topk=args.topk, skip_2layer=args.skip_2layer)
+    #     model.load_state_dict(checkpoint, strict=False)    
 
-    elif args.method == 'quest':
-        checkpoint = copy.deepcopy(model.state_dict())
-        model = convert_kvcache_llama_quest(model, topk=args.topk, skip_2layer=args.skip_2layer, chunk_size=16)
-        model.load_state_dict(checkpoint, strict=False)  
+    # elif args.method == 'quest':
+    #     checkpoint = copy.deepcopy(model.state_dict())
+    #     model = convert_kvcache_llama_quest(model, topk=args.topk, skip_2layer=args.skip_2layer, chunk_size=16)
+    #     model.load_state_dict(checkpoint, strict=False)  
 
-    elif args.method == 'streamingllm':
-        checkpoint = copy.deepcopy(model.state_dict())
-        model = convert_kvcache_llama_streamingllm(model, topk=args.topk, skip_2layer=args.skip_2layer)
-        model.load_state_dict(checkpoint, strict=False)  
+    # elif args.method == 'streamingllm':
+    #     checkpoint = copy.deepcopy(model.state_dict())
+    #     model = convert_kvcache_llama_streamingllm(model, topk=args.topk, skip_2layer=args.skip_2layer)
+    #     model.load_state_dict(checkpoint, strict=False)  
 
-    elif args.method == 'snapkv':
-        checkpoint = copy.deepcopy(model.state_dict())
-        model = convert_kvcache_llama_snapkv(model, topk=args.topk, skip_2layer=args.skip_2layer)
-        model.load_state_dict(checkpoint, strict=False)        
+    # elif args.method == 'snapkv':
+    #     checkpoint = copy.deepcopy(model.state_dict())
+    #     model = convert_kvcache_llama_snapkv(model, topk=args.topk, skip_2layer=args.skip_2layer)
+    #     model.load_state_dict(checkpoint, strict=False)        
 
     tokenizer.padding_side = "left"
     if tokenizer.pad_token is None:
