@@ -1,9 +1,9 @@
 # AttentionPredictor: Temporal Pattern Matters for Efficient LLM Inference
 
 ![Alt text](figs/image.png)
-Official implementation of **AttentionPredictor** - the first learning-based critical token identification approach, which learns a lightweight convolution model to capture spatiotemporal patterns and predict the next-token attention score. An appealing feature is that it accurately predicts the attention score while consuming negligible memory. By retaining most of the attention information, AttentionPredictor achieves 16× KV cache compression with comparable LLM performance, significantly outperforming the state-of-the-art.
+Official implementation of **AttentionPredictor** - the first learning-based KV cache compression approach, which learns a lightweight convolution model to capture spatiotemporal patterns and predict the next-token attention score. An appealing feature is that it accurately predicts the attention score while consuming negligible memory. By retaining most of the attention information, AttentionPredictor achieves 16× KV cache compression with comparable LLM performance, significantly outperforming the state-of-the-art.
 
-Our paper is on: [https://arxiv.org/abs/2502.04077](https://arxiv.org/abs/2502.04077)
+Our paper is on [https://arxiv.org/abs/2502.04077](https://arxiv.org/abs/2502.04077)
 
 ## Quick Start
 
