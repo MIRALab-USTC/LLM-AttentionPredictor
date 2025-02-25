@@ -1,6 +1,6 @@
 export CUDA_VISIBLE_DEVICES="0"
 
-method="AttentionPredictor" # Support FullKV, tsp
+method="AttentionPredictor" # Support FullKV, AttentionPredictor
 sample_method="AttentionPredictor" # 
 attn_implementation="flash_attention_2" # 
 model_path="../../model/longchat-7b-v1.5-32k" # path to LLM model
