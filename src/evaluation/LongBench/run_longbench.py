@@ -10,10 +10,10 @@ from datetime import datetime, timedelta
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, LlamaForCausalLM
 from ...llama_attention.attnpred_llama_attention import convert_kvcache_llama_attnpred
-# from h2o_llama_attention import convert_kvcache_llama_h2o
-# from quest_llama_attention import convert_kvcache_llama_quest
-# from streamingllm_llama_attention import convert_kvcache_llama_streamingllm
-# from snapkv_llama_attention import convert_kvcache_llama_snapkv
+# from ...llama_attention.h2o_llama_attention import convert_kvcache_llama_h2o
+# from ...llama_attention.quest_llama_attention import convert_kvcache_llama_quest
+# from ...llama_attention.streamingllm_llama_attention import convert_kvcache_llama_streamingllm
+# from ...llama_attention.snapkv_llama_attention import convert_kvcache_llama_snapkv
 
 
 dataset2maxlen = {
@@ -275,8 +275,6 @@ if __name__ == "__main__":
     parser.add_argument("--model_path", type=str, default=None, help="if specified, we will load the model to generate the predictions.")
     
     parser.add_argument("--sample_method", type=str, default="FullKV")
-    
-    parser.add_argument("--eval_batch_size", type=int, default=1, help="batch size for evaluation.")
     
     parser.add_argument("--attn_implementation", type=str,  default="eager", choices=["flash_attention_2", "sdpa", "eager"])
     parser.add_argument("--method", type=str,  default=None)

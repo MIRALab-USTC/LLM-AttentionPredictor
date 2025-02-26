@@ -13,6 +13,10 @@ from datasets import load_from_disk, load_dataset
 from transformers import AutoModelForCausalLM, AutoTokenizer, LlamaForCausalLM
 from transformers.generation import GenerationConfig
 from ...llama_attention.attnpred_llama_attention import convert_kvcache_llama_attnpred
+# from ...llama_attention.h2o_llama_attention import convert_kvcache_llama_h2o
+# from ...llama_attention.quest_llama_attention import convert_kvcache_llama_quest
+# from ...llama_attention.streamingllm_llama_attention import convert_kvcache_llama_streamingllm
+# from ...llama_attention.snapkv_llama_attention import convert_kvcache_llama_snapkv
 
 ANS_RE = re.compile(r"#### (\-?[0-9\.\,]+)")
 INVALID_ANS = "[invalid]"
