@@ -86,8 +86,8 @@ class LlamaFlashAttention2_AttnPred(nn.Module):
 
         ### AttentionPredictor
         self.model = CNN()
-        # self.model.load_state_dict(torch.load('/home/qyyang/kvcache/test/demo/runs/2024-10-25_09-23-56_CNN_longchat_lb_64_pool16_alltask_5case/best_model.pth', map_location='cuda:0'))
-        # self.model.load_state_dict(torch.load('/home/qyyang/kvcache/test/demo/runs/2024-11-02_21-53-46_CNN_llama3.1_alltask_5case/best_model.pth', map_location='cuda:0'))       
+        # self.model.load_state_dict(torch.load('model/CNN_longchat_alltask_5case/best_model.pth', map_location='cuda:0'))
+        # self.model.load_state_dict(torch.load('model/CNN_llama3.1_alltask_5case/best_model.pth', map_location='cuda:0'))       
 
         self.attn_history = None
         self.topk = 1024

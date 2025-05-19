@@ -8,7 +8,7 @@ Our paper is on [https://arxiv.org/abs/2502.04077](https://arxiv.org/abs/2502.04
 ## Quick Start
 
 ### Requirements
-- Torchs
+- Torch
 - FlashAttention-2
 - Transformers >= 4.44.0
 
