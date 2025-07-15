@@ -239,7 +239,7 @@ def main(args):
             # example["input"] = input
             # example["context"] = context
             example["answers"] = answers
-            example["pred"] = outputs[0]
+            example["pred"] = outputs
             example["length"] = length
             example["input_tokens"] = context_length
             example["dataset"] = dataset
