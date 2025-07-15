@@ -344,9 +344,9 @@ def convert_kvcache_llama_attnpred(model, model_type='llama-3.1', topk = 1024, s
 
             if module.__class__ == LlamaFlashAttention2:
                 new_module = LlamaFlashAttention2_AttnPred(original_config, layer_idx)
-                if 'llama-3.1' in model_type.lower :
+                if 'llama-3.1' in model_type.lower():
                     new_module.model.load_state_dict(torch.load('../../model/CNN_llama3.1_alltask_5case/best_model.pth', map_location='cuda:0'))
-                elif 'longchat' in model_type.lower:
+                elif 'longchat' in model_type.lower():
                     new_module.model.load_state_dict(torch.load('../../model/CNN_longchat_alltask_5case/best_model.pth', map_location='cuda:0'))
                 else:
                     Exception('model_type error')
